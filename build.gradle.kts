@@ -11,8 +11,8 @@ plugins {
 }
 
 //General
-val minecraft_version = "1.19.2"
-val mod_version = "1.6.6"
+val minecraft_version = "1.12.2"
+val mod_version = "1.6.7"
 val maven_group = "city.windmill"
 val archives_base_name = "IngameIME"
 
@@ -44,12 +44,12 @@ subprojects {
     tasks {
         withType(ShadowJar::class) { this.configurations = listOf(shadowC) }
         withType<KotlinCompile> {
-            kotlinOptions.jvmTarget = "17"
+            kotlinOptions.jvmTarget = "8"
         }
 
         withType<JavaCompile> {
-            sourceCompatibility = "17"
-            targetCompatibility = "17"
+            sourceCompatibility = "8"
+            targetCompatibility = "8"
         }
     }
 
@@ -163,16 +163,16 @@ allprojects {
     apply(plugin = "architectury-plugin")
 }
 
-val curse_api_key: String
-    get() {
-        with(file("./local.properties")) {
-            if (exists()) {
-                val props = Properties()
-                props.load(inputStream())
-                return (props["curse_api_key"] ?: "") as String
-            }
-        }
-        return System.getenv("CURSE_API_KEY")
-    }
-
-rootProject.ext["apiKey"] = curse_api_key
+//val curse_api_key: String
+//    get() {
+//        with(file("./local.properties")) {
+//            if (exists()) {
+//                val props = Properties()
+//                props.load(inputStream())
+//                return (props["curse_api_key"] ?: "") as String
+//            }
+//        }
+//        return System.getenv("CURSE_API_KEY")
+//    }
+//
+//rootProject.ext["apiKey"] = curse_api_key

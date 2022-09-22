@@ -17,7 +17,7 @@ minecraft {
 }
 
 dependencies {
-    forge("net.minecraftforge:forge:${rootProject.architectury.minecraft}-36.1.4")
+    forge("net.minecraftforge:forge:${rootProject.architectury.minecraft}-14.23.5.2860")
 
     //Forge Kotlin
     modImplementation("thedarkcolour:kotlinforforge:1.11.1")
@@ -50,23 +50,23 @@ tasks {
 
 val changeLog: String by rootProject
 
-curseforge {
-    apiKey = rootProject.ext["apiKey"]
-    project(closureOf<com.matthewprenger.cursegradle.CurseProject> {
-        id = "440032"
-        releaseType = "release"
-        changelog = changeLog
-        mainArtifact(tasks["remapJar"])
-        addArtifact(tasks["shadowJar"])
-        addGameVersion("Forge")
-        addGameVersion("Java 16")
-        addGameVersion("1.17")
-        relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
-            requiredDependency("kotlin-for-forge")
-            requiredDependency("cloth-config-forge")
-        })
-    })
-    options(closureOf<com.matthewprenger.cursegradle.Options> {
-        forgeGradleIntegration = false
-    })
-}
+//curseforge {
+//    apiKey = rootProject.ext["apiKey"]
+//    project(closureOf<com.matthewprenger.cursegradle.CurseProject> {
+//        id = "440032"
+//        releaseType = "release"
+//        changelog = changeLog
+//        mainArtifact(tasks["remapJar"])
+//        addArtifact(tasks["shadowJar"])
+//        addGameVersion("Forge")
+//        addGameVersion("Java 16")
+//        addGameVersion("1.17")
+//        relations(closureOf<com.matthewprenger.cursegradle.CurseRelation> {
+//            requiredDependency("kotlin-for-forge")
+//            requiredDependency("cloth-config-forge")
+//        })
+//    })
+//    options(closureOf<com.matthewprenger.cursegradle.Options> {
+//        forgeGradleIntegration = false
+//    })
+//}
